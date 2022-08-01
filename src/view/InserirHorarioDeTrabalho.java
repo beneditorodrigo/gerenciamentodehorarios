@@ -16,8 +16,9 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.MaskFormatter;
 
-import model.Hora;
-import model.Horarios;
+import entity.Hora;
+import entity.Horarios;
+import model.HorariosDeTrabalhoController;
 
 public class InserirHorarioDeTrabalho extends JFrame implements ActionListener {
 
@@ -42,8 +43,10 @@ public class InserirHorarioDeTrabalho extends JFrame implements ActionListener {
 	private JButton botaoCadastrar;
 
 	private DefaultTableModel modelo = new DefaultTableModel();
-	
+
 	private Horarios horarios = new Horarios();
+	
+	private HorariosDeTrabalhoController horariosDeTrabalhoController = new HorariosDeTrabalhoController();
 
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == botaoEncerrar) {
@@ -54,6 +57,26 @@ public class InserirHorarioDeTrabalho extends JFrame implements ActionListener {
 		}
 
 		if (e.getSource() == botaoCadastrar) {
+
+			boolean vlHrDiferentes = horariosDeTrabalhoController.validaHorariosDiferentes(entrada.getText(), saida.getText());
+			boolean vlHrValida = horariosDeTrabalhoController.validaHorario(entrada.getText(), saida.getText());
+			//boolean vlHrDisponivel = 
+					horariosDeTrabalhoController.verificaDisponibilidadeDeHorario(entrada.getText(), saida.getText(), horarios.getHorariosDeTrabalho());
+			
+			if(vlHrDiferentes && vlHrValida) {
+				horariosDeTrabalhoController.adcionandoHorarioDeTrabalho(entrada.getText(), saida.getText(), horarios);
+			}
+			
+			for(Hora hora : horarios.getHorariosDeTrabalho()) {
+				System.out.println(hora.getEntrada() + " - " + hora.getSaida());
+			}
+			
+			System.out.println(horarios.getHorariosDeTrabalho().size());
+
+			setVisible(false);
+			
+			InserirHorarioDeTrabalho inserirHorariosDeTrabalho = new InserirHorarioDeTrabalho(horarios.getHorariosDeTrabalho());
+			
 			entrada.setText("");
 			saida.setText("");
 		}

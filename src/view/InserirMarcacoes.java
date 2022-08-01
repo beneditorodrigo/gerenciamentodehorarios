@@ -16,8 +16,10 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.MaskFormatter;
 
-import model.Hora;
-import model.Horarios;
+import entity.Hora;
+import entity.Horarios;
+import model.HorariosDeTrabalhoController;
+import model.MarcacoesFeitasController;
 
 public class InserirMarcacoes extends JFrame implements ActionListener{
 	
@@ -44,7 +46,8 @@ public class InserirMarcacoes extends JFrame implements ActionListener{
 	private DefaultTableModel modelo = new DefaultTableModel();
 	
 	private Horarios horarios = new Horarios();
-
+	private MarcacoesFeitasController marcacoesFeitasController = new MarcacoesFeitasController();
+	
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == botaoEncerrar) {
 			System.exit(0);
@@ -54,6 +57,20 @@ public class InserirMarcacoes extends JFrame implements ActionListener{
 		}
 
 		if (e.getSource() == botaoCadastrar) {
+			
+			boolean vlHrDiferentes = marcacoesFeitasController.validaHorariosDiferentes(entrada.getText(), saida.getText());
+			boolean vlHrValida = marcacoesFeitasController.validaHorario(entrada.getText(), saida.getText());
+			//boolean vlHrDisponivel = 
+					marcacoesFeitasController.verificaDisponibilidadeDeHorario(entrada.getText(), saida.getText(), horarios.getMarcacoesFeitas());
+			
+			if(vlHrDiferentes && vlHrValida) {
+				marcacoesFeitasController.adcionandoMarcacoes(entrada.getText(), saida.getText(), horarios);
+			}
+
+			setVisible(false);
+			
+			InserirMarcacoes inserirMarcacoes = new InserirMarcacoes(horarios.getMarcacoesFeitas());
+			
 			entrada.setText("");
 			saida.setText("");
 		}

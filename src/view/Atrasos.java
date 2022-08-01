@@ -12,7 +12,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import model.Hora;
+import entity.Hora;
 
 public class Atrasos extends JFrame implements ActionListener{
 
