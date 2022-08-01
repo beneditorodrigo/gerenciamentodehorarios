@@ -19,8 +19,8 @@ import javax.swing.text.MaskFormatter;
 import model.Hora;
 import model.Horarios;
 
-public class InserirHorarioDeTrabalho extends JFrame implements ActionListener {
-
+public class InserirMarcacoes extends JFrame implements ActionListener{
+	
 	private static final long serialVersionUID = 1L;
 
 	private JPanel painelFundo;
@@ -59,9 +59,9 @@ public class InserirHorarioDeTrabalho extends JFrame implements ActionListener {
 		}
 	}
 
-	public InserirHorarioDeTrabalho(ArrayList<Hora> horariosDeTrabalho) {
-		super("Horários de Trabalho");
-		criarTabelaHorariosDeTrabalho(horariosDeTrabalho);
+	public InserirMarcacoes(ArrayList<Hora> horariosDeTrabalho) {
+		super("Marcações");
+		criarTabelaMarcacoes(horariosDeTrabalho);
 		criaJanela();
 	}
 
@@ -114,7 +114,7 @@ public class InserirHorarioDeTrabalho extends JFrame implements ActionListener {
 		setVisible(true);
 	}
 
-	public void criarTabelaHorariosDeTrabalho(ArrayList<Hora> horasHorariosDeTrabalho) {
+	public void criarTabelaMarcacoes(ArrayList<Hora> horasMarcacoes) {
 
 		tabela = new JTable(modelo);
 		modelo.addColumn("Entrada");
@@ -122,7 +122,7 @@ public class InserirHorarioDeTrabalho extends JFrame implements ActionListener {
 
 		int contador = 0;
 
-		for (Hora horas : horasHorariosDeTrabalho) {
+		for (Hora horas : horasMarcacoes) {
 			Object[] object = { horas.getEntrada(), horas.getSaida() };
 			modelo.insertRow(contador, object);
 			contador++;

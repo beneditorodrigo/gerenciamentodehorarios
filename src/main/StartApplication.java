@@ -2,7 +2,8 @@ package main;
 
 import model.Hora;
 import model.Horarios;
-import view.InserirHorarioDeTrabalho;
+import view.Atrasos;
+import view.InserirMarcacoes;
 
 public class StartApplication {
 
@@ -16,8 +17,15 @@ public class StartApplication {
 		horarios.getHorasExtras().add(hora);
 		horarios.getHorasExtras().add(hora2);
 		
+		horarios.getAtrasos().add(hora);
+		horarios.getAtrasos().add(hora2);
+		
 		//HorasExtras horasExtras = new HorasExtras(horarios.getHorasExtras());
 		
-		InserirHorarioDeTrabalho horarioTrabalho = new InserirHorarioDeTrabalho(null);
+		//InserirHorarioDeTrabalho horarioTrabalho = new InserirHorarioDeTrabalho(horarios.getHorariosDeTrabalho());
+		
+		//Atrasos atrasos = new Atrasos(horarios.getAtrasos());
+		
+		InserirMarcacoes inserirMarcacoes =  new InserirMarcacoes(horarios.getMarcacoesFeitas());
 	}
 }

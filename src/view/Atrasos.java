@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 
 import model.Hora;
 
-public class HorasExtras extends JFrame implements ActionListener {
+public class Atrasos extends JFrame implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
 
@@ -35,9 +35,9 @@ public class HorasExtras extends JFrame implements ActionListener {
 		}
 	}
 
-	public HorasExtras(ArrayList<Hora> horasExtras) {
-		super("Horas Extras");
-		criarTabelaHorasExtras(horasExtras);
+	public Atrasos(ArrayList<Hora> atrasos) {
+		super("Atrasos");
+		criarTabelaAtrasos(atrasos);
 		criaJanela();
 	}
 
@@ -66,7 +66,7 @@ public class HorasExtras extends JFrame implements ActionListener {
 		setVisible(true);
 	}
 
-	public void criarTabelaHorasExtras(ArrayList<Hora> horasExtras) {
+	public void criarTabelaAtrasos(ArrayList<Hora> atrasos) {
 		
 		tabela = new JTable(modelo);
 		modelo.addColumn("Entrada");
@@ -74,7 +74,7 @@ public class HorasExtras extends JFrame implements ActionListener {
 		
 		int contador = 0;
 		
-		for(Hora horas : horasExtras) {
+		for(Hora horas : atrasos) {
 			Object[] object = {horas.getEntrada(), horas.getSaida()};
 			modelo.insertRow(contador, object);
 			contador++;
