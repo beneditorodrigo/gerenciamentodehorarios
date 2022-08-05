@@ -45,7 +45,7 @@ public class InserirMarcacoes extends JFrame implements ActionListener{
 
 	private DefaultTableModel modelo = new DefaultTableModel();
 	
-	private Horarios horarios = new Horarios();
+	private Horarios horarios;
 	private MarcacoesFeitasController marcacoesFeitasController = new MarcacoesFeitasController();
 	
 	public void actionPerformed(ActionEvent e) {
@@ -60,24 +60,25 @@ public class InserirMarcacoes extends JFrame implements ActionListener{
 			
 			boolean vlHrDiferentes = marcacoesFeitasController.validaHorariosDiferentes(entrada.getText(), saida.getText());
 			boolean vlHrValida = marcacoesFeitasController.validaHorario(entrada.getText(), saida.getText());
-			//boolean vlHrDisponivel = 
+			boolean vlHrDisponivel = 
 					marcacoesFeitasController.verificaDisponibilidadeDeHorario(entrada.getText(), saida.getText(), horarios.getMarcacoesFeitas());
 			
-			if(vlHrDiferentes && vlHrValida) {
+			if(vlHrDiferentes && vlHrValida && vlHrDisponivel) {
 				marcacoesFeitasController.adcionandoMarcacoes(entrada.getText(), saida.getText(), horarios);
 			}
 
 			setVisible(false);
 			
-			InserirMarcacoes inserirMarcacoes = new InserirMarcacoes(horarios.getMarcacoesFeitas());
+			InserirMarcacoes inserirMarcacoes = new InserirMarcacoes(horarios.getMarcacoesFeitas(), horarios);
 			
 			entrada.setText("");
 			saida.setText("");
 		}
 	}
 
-	public InserirMarcacoes(ArrayList<Hora> horariosDeTrabalho) {
+	public InserirMarcacoes(ArrayList<Hora> horariosDeTrabalho, Horarios horarios) {
 		super("Marcações");
+		this.horarios = horarios;
 		criarTabelaMarcacoes(horariosDeTrabalho);
 		criaJanela();
 	}

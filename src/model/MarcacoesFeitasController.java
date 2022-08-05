@@ -70,6 +70,7 @@ private Hora hora;
 			horarioDisponivel = true;
 		} else {
 			horarioDisponivel = false;
+			JOptionPane.showMessageDialog(null, "Choque de Horários!");
 		}
 		
 		return horarioDisponivel;

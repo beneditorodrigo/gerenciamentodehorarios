@@ -70,6 +70,7 @@ public class HorariosDeTrabalhoController {
 			horarioDisponivel = true;
 		} else {
 			horarioDisponivel = false;
+			JOptionPane.showMessageDialog(null, "Choque de Horários!");
 		}
 		
 		return horarioDisponivel;
@@ -82,7 +83,7 @@ public class HorariosDeTrabalhoController {
 			
 			JOptionPane.showMessageDialog(null, "Horário Cadastrado");
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "ERRO " + e.getMessage());
+			JOptionPane.showMessageDialog(null, "ERRO");
 		}
 	}
 }

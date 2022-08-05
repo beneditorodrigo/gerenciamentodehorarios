@@ -44,9 +44,9 @@ public class InserirHorarioDeTrabalho extends JFrame implements ActionListener {
 
 	private DefaultTableModel modelo = new DefaultTableModel();
 
-	private Horarios horarios = new Horarios();
-	
 	private HorariosDeTrabalhoController horariosDeTrabalhoController = new HorariosDeTrabalhoController();
+	
+	private Horarios horarios;
 
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == botaoEncerrar) {
@@ -60,10 +60,10 @@ public class InserirHorarioDeTrabalho extends JFrame implements ActionListener {
 
 			boolean vlHrDiferentes = horariosDeTrabalhoController.validaHorariosDiferentes(entrada.getText(), saida.getText());
 			boolean vlHrValida = horariosDeTrabalhoController.validaHorario(entrada.getText(), saida.getText());
-			//boolean vlHrDisponivel = 
+			boolean vlHrDisponivel = 
 					horariosDeTrabalhoController.verificaDisponibilidadeDeHorario(entrada.getText(), saida.getText(), horarios.getHorariosDeTrabalho());
 			
-			if(vlHrDiferentes && vlHrValida) {
+			if(vlHrDiferentes && vlHrValida && vlHrDisponivel) {
 				horariosDeTrabalhoController.adcionandoHorarioDeTrabalho(entrada.getText(), saida.getText(), horarios);
 			}
 			
@@ -75,15 +75,16 @@ public class InserirHorarioDeTrabalho extends JFrame implements ActionListener {
 
 			setVisible(false);
 			
-			InserirHorarioDeTrabalho inserirHorariosDeTrabalho = new InserirHorarioDeTrabalho(horarios.getHorariosDeTrabalho());
+			InserirHorarioDeTrabalho inserirHorariosDeTrabalho = new InserirHorarioDeTrabalho(horarios.getHorariosDeTrabalho(), horarios);
 			
 			entrada.setText("");
 			saida.setText("");
 		}
 	}
 
-	public InserirHorarioDeTrabalho(ArrayList<Hora> horariosDeTrabalho) {
+	public InserirHorarioDeTrabalho(ArrayList<Hora> horariosDeTrabalho, Horarios horarios) {
 		super("Horários de Trabalho");
+		this.horarios = horarios;
 		criarTabelaHorariosDeTrabalho(horariosDeTrabalho);
 		criaJanela();
 	}
