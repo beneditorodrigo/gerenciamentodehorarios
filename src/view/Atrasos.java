@@ -3,7 +3,6 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,6 +12,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import entity.Hora;
+import entity.Horarios;
 
 public class Atrasos extends JFrame implements ActionListener{
 
@@ -35,9 +35,9 @@ public class Atrasos extends JFrame implements ActionListener{
 		}
 	}
 
-	public Atrasos(ArrayList<Hora> atrasos) {
+	public Atrasos(Horarios horarios) {
 		super("Atrasos");
-		criarTabelaAtrasos(atrasos);
+		criarTabelaAtrasos(horarios);
 		criaJanela();
 	}
 
@@ -66,7 +66,7 @@ public class Atrasos extends JFrame implements ActionListener{
 		setVisible(true);
 	}
 
-	public void criarTabelaAtrasos(ArrayList<Hora> atrasos) {
+	public void criarTabelaAtrasos(Horarios horarios) {
 		
 		tabela = new JTable(modelo);
 		modelo.addColumn("Entrada");
@@ -74,7 +74,7 @@ public class Atrasos extends JFrame implements ActionListener{
 		
 		int contador = 0;
 		
-		for(Hora horas : atrasos) {
+		for(Hora horas : horarios.getAtrasos()) {
 			Object[] object = {horas.getEntrada(), horas.getSaida()};
 			modelo.insertRow(contador, object);
 			contador++;

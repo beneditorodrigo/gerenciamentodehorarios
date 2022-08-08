@@ -2,7 +2,7 @@ package main;
 
 import entity.Hora;
 import entity.Horarios;
-import view.HorasExtras;
+import view.Atrasos;
 
 public class StartApplication {
 
@@ -19,11 +19,11 @@ public class StartApplication {
 		horarios.getAtrasos().add(hora);
 		horarios.getAtrasos().add(hora2);
 		
-		HorasExtras horasExtras = new HorasExtras(horarios);
+		//HorasExtras horasExtras = new HorasExtras(horarios);
 		
 		//InserirHorarioDeTrabalho horarioTrabalho = new InserirHorarioDeTrabalho(horarios.getHorariosDeTrabalho(), horarios);
 		
-		//Atrasos atrasos = new Atrasos(horarios);
+		Atrasos atrasos = new Atrasos(horarios);
 		
 		//InserirMarcacoes inserirMarcacoes =  new InserirMarcacoes(horarios.getMarcacoesFeitas(), horarios);
 	}
