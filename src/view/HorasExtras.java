@@ -3,7 +3,6 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,6 +12,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import entity.Hora;
+import entity.Horarios;
 
 public class HorasExtras extends JFrame implements ActionListener {
 
@@ -35,9 +35,9 @@ public class HorasExtras extends JFrame implements ActionListener {
 		}
 	}
 
-	public HorasExtras(ArrayList<Hora> horasExtras) {
+	public HorasExtras(Horarios horarios) {
 		super("Horas Extras");
-		criarTabelaHorasExtras(horasExtras);
+		criarTabelaHorasExtras(horarios);
 		criaJanela();
 	}
 
@@ -55,7 +55,6 @@ public class HorasExtras extends JFrame implements ActionListener {
 		painelFundo.add(BorderLayout.CENTER, barraRolagem);
 
 		painelBotoes.add(botaoRetornar);
-		;
 		painelBotoes.add(botaoEncerrar);
 		painelFundo.add(BorderLayout.SOUTH, painelBotoes);
 
@@ -66,7 +65,7 @@ public class HorasExtras extends JFrame implements ActionListener {
 		setVisible(true);
 	}
 
-	public void criarTabelaHorasExtras(ArrayList<Hora> horasExtras) {
+	public void criarTabelaHorasExtras(Horarios horarios) {
 		
 		tabela = new JTable(modelo);
 		modelo.addColumn("Entrada");
@@ -74,7 +73,7 @@ public class HorasExtras extends JFrame implements ActionListener {
 		
 		int contador = 0;
 		
-		for(Hora horas : horasExtras) {
+		for(Hora horas : horarios.getHorasExtras()) {
 			Object[] object = {horas.getEntrada(), horas.getSaida()};
 			modelo.insertRow(contador, object);
 			contador++;
