@@ -9,6 +9,8 @@ public class Horarios {
 	private ArrayList<Hora> atrasos = new ArrayList<>();
 	private ArrayList<Hora> horasExtras = new ArrayList<>();
 
+	private int contadorHorarios = 0;
+
 	public ArrayList<Hora> getHorariosDeTrabalho() {
 		return horariosDeTrabalho;
 	}
@@ -39,5 +41,13 @@ public class Horarios {
 
 	public void setHorasExtras(ArrayList<Hora> horasExtras) {
 		this.horasExtras = horasExtras;
+	}
+
+	public int getContadorHorarios() {
+		return contadorHorarios;
+	}
+
+	public void setContadorHorarios(int contadorHorarios) {
+		this.contadorHorarios = contadorHorarios;
 	}
 }

@@ -22,10 +22,10 @@ public class StartApplication {
 		
 		//HorasExtras horasExtras = new HorasExtras(horarios.getHorasExtras());
 		
-		//InserirHorarioDeTrabalho horarioTrabalho = new InserirHorarioDeTrabalho(horarios.getHorariosDeTrabalho(), horarios);
+		InserirHorarioDeTrabalho horarioTrabalho = new InserirHorarioDeTrabalho(horarios.getHorariosDeTrabalho(), horarios);
 		
 		//Atrasos atrasos = new Atrasos(horarios.getAtrasos());
 		
-		InserirMarcacoes inserirMarcacoes =  new InserirMarcacoes(horarios.getMarcacoesFeitas(), horarios);
+		//InserirMarcacoes inserirMarcacoes =  new InserirMarcacoes(horarios.getMarcacoesFeitas(), horarios);
 	}
 }

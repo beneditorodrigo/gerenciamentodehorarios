@@ -86,10 +86,10 @@ public class InserirHorarioDeTrabalho extends JFrame implements ActionListener {
 		super("Horários de Trabalho");
 		this.horarios = horarios;
 		criarTabelaHorariosDeTrabalho(horariosDeTrabalho);
-		criaJanela();
+		criaJanela(horarios);
 	}
 
-	public void criaJanela() {
+	public void criaJanela(Horarios horarios) {
 
 		try {
 			mascara = new MaskFormatter("##:##");
@@ -129,7 +129,10 @@ public class InserirHorarioDeTrabalho extends JFrame implements ActionListener {
 		painelFundo.add(BorderLayout.CENTER, barraRolagem);
 
 		painelFundo.add(BorderLayout.SOUTH, painelBotoes);
-		painelFundo.add(BorderLayout.BEFORE_FIRST_LINE, painelCadastro);
+		
+		if(horarios.getContadorHorarios() < 3) {
+			painelFundo.add(BorderLayout.BEFORE_FIRST_LINE, painelCadastro);
+		}
 
 		getContentPane().add(painelFundo);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);

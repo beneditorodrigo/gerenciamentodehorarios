@@ -82,6 +82,7 @@ public class HorariosDeTrabalhoController {
 			horarios.getHorariosDeTrabalho().add(hora);
 			
 			JOptionPane.showMessageDialog(null, "Horário Cadastrado");
+			horarios.setContadorHorarios(horarios.getContadorHorarios() + 1);
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "ERRO");
 		}
