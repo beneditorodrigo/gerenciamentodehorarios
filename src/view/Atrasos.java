@@ -13,6 +13,7 @@ import javax.swing.table.DefaultTableModel;
 
 import entity.Hora;
 import entity.Horarios;
+import main.MenuPrincipal;
 
 public class Atrasos extends JFrame implements ActionListener{
 
@@ -25,13 +26,15 @@ public class Atrasos extends JFrame implements ActionListener{
 	private JButton botaoRetornar;
 	private JButton botaoEncerrar;
 	private DefaultTableModel modelo = new DefaultTableModel();
+	private Horarios horarios;
 	
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==botaoEncerrar) {
 			System.exit(0);
 		}
 		if(e.getSource()==botaoRetornar) {
-			
+			setVisible(false);
+			MenuPrincipal menu = new MenuPrincipal(horarios);
 		}
 	}
 
@@ -39,6 +42,7 @@ public class Atrasos extends JFrame implements ActionListener{
 		super("Atrasos");
 		criarTabelaAtrasos(horarios);
 		criaJanela();
+		this.horarios = horarios;
 	}
 
 	public void criaJanela() {

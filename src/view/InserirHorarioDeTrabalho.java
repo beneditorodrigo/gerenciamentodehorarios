@@ -18,6 +18,7 @@ import javax.swing.text.MaskFormatter;
 
 import entity.Hora;
 import entity.Horarios;
+import main.MenuPrincipal;
 import model.HorariosDeTrabalhoController;
 
 public class InserirHorarioDeTrabalho extends JFrame implements ActionListener {
@@ -53,7 +54,8 @@ public class InserirHorarioDeTrabalho extends JFrame implements ActionListener {
 			System.exit(0);
 		}
 		if (e.getSource() == botaoRetornar) {
-
+			setVisible(false);
+			MenuPrincipal menu = new MenuPrincipal(horarios);
 		}
 
 		if (e.getSource() == botaoCadastrar) {

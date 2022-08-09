@@ -1,30 +1,24 @@
 package main;
 
-import entity.Hora;
 import entity.Horarios;
 import view.Atrasos;
+import view.HorasExtras;
+import view.InserirHorarioDeTrabalho;
+import view.InserirMarcacoes;
 
 public class StartApplication {
 
 	public static void main(String[] args) {
-		
-		Hora hora = new Hora("08:00", "09:30");
-		Hora hora2 = new Hora("12:00", "13:00");
-		
-		
 		Horarios horarios = new Horarios();
-		horarios.getHorasExtras().add(hora);
-		horarios.getHorasExtras().add(hora2);
 		
-		horarios.getAtrasos().add(hora);
-		horarios.getAtrasos().add(hora2);
+		//MenuPrincipal menu = new MenuPrincipal(horarios);
 		
-		//HorasExtras horasExtras = new HorasExtras(horarios);
+		//InserirHorarioDeTrabalho inserirHorarioDeTrabalho = new InserirHorarioDeTrabalho(horarios.getHorariosDeTrabalho(), horarios);
 		
-		//InserirHorarioDeTrabalho horarioTrabalho = new InserirHorarioDeTrabalho(horarios.getHorariosDeTrabalho(), horarios);
+		//InserirMarcacoes marcacoes = new InserirMarcacoes(horarios.getMarcacoesFeitas(), horarios);
 		
-		Atrasos atrasos = new Atrasos(horarios);
+		//Atrasos atrasos = new Atrasos(horarios);
 		
-		//InserirMarcacoes inserirMarcacoes =  new InserirMarcacoes(horarios.getMarcacoesFeitas(), horarios);
+		HorasExtras horasExtras = new HorasExtras(horarios);
 	}
 }
