@@ -59,7 +59,6 @@ public class Atrasos extends JFrame implements ActionListener{
 		painelFundo.add(BorderLayout.CENTER, barraRolagem);
 
 		painelBotoes.add(botaoRetornar);
-		;
 		painelBotoes.add(botaoEncerrar);
 		painelFundo.add(BorderLayout.SOUTH, painelBotoes);
 

@@ -11,7 +11,7 @@ public class StartApplication {
 	public static void main(String[] args) {
 		Horarios horarios = new Horarios();
 		
-		//MenuPrincipal menu = new MenuPrincipal(horarios);
+		MenuPrincipal menu = new MenuPrincipal(horarios);
 		
 		//InserirHorarioDeTrabalho inserirHorarioDeTrabalho = new InserirHorarioDeTrabalho(horarios.getHorariosDeTrabalho(), horarios);
 		
@@ -19,6 +19,6 @@ public class StartApplication {
 		
 		//Atrasos atrasos = new Atrasos(horarios);
 		
-		HorasExtras horasExtras = new HorasExtras(horarios);
+		//HorasExtras horasExtras = new HorasExtras(horarios);
 	}
 }

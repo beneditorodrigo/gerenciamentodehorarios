@@ -68,12 +68,6 @@ public class InserirHorarioDeTrabalho extends JFrame implements ActionListener {
 			if(vlHrDiferentes && vlHrValida && vlHrDisponivel) {
 				horariosDeTrabalhoController.adcionandoHorarioDeTrabalho(entrada.getText(), saida.getText(), horarios);
 			}
-			
-			for(Hora hora : horarios.getHorariosDeTrabalho()) {
-				System.out.println(hora.getEntrada() + " - " + hora.getSaida());
-			}
-			
-			System.out.println(horarios.getHorariosDeTrabalho().size());
 
 			setVisible(false);
 			
